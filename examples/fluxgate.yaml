@@ -1,0 +1,30 @@
+# FluxGate Configuration
+# All routing is handled via API, this file only contains server configuration
+
+server:
+  port: 8080         # HTTP port
+  metrics_port: 9090 # Prometheus metrics
+  gossip_port: 7946  # Cluster communication
+  hot_reload: true   # Config file watching
+  
+health_check:
+  interval: 10s
+  timeout: 5s
+  path: /health
+
+timeouts:
+  read: 30s
+  write: 30s
+  idle: 120s
+
+logging:
+  level: info
+  format: text
+
+cluster:
+  join_address: ""
+
+# TLS Configuration (optional)
+# tls:
+#   cert_file: examples/cert.pem
+#   key_file: examples/key.pem

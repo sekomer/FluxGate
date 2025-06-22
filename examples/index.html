@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FluxGate Demo Backend</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+        .backend {
+            background: #f0f0f0;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        code {
+            background: #e0e0e0;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <h1>FluxGate Demo Backend</h1>
+    <div class="backend">
+        <h2>Backend Server</h2>
+        <p>This page is being served by one of the backend servers through FluxGate.</p>
+        <p>The backend server is running on: <code><script>document.write(window.location.port || '80')</script></code></p>
+    </div>
+    
+    <div class="backend">
+        <h2>Test the Load Balancer</h2>
+        <p>Refresh this page multiple times to see different backend ports (if viewing through FluxGate).</p>
+        <p>Current time: <code><script>document.write(new Date().toLocaleTimeString())</script></code></p>
+    </div>
+    
+    <div class="backend">
+        <h2>API Test</h2>
+        <p>Try these commands:</p>
+        <pre>
+# Through FluxGate (load balanced)
+curl http://localhost:8080/api/test
+
+# Direct to backends
+curl http://localhost:8001/api/test
+curl http://localhost:8002/api/test
+curl http://localhost:8003/api/test
+
+# Metrics
+curl http://localhost:9090/metrics
+        </pre>
+    </div>
+</body>
+</html>
